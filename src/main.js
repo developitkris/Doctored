@@ -6,16 +6,17 @@ import { Doctors } from './doctored.js';
 
 
 $(document).ready(function() {
-  $('#searchbtn').click(function() {
-    let docInfo = $('#docInfo').val();
-    let medConcern = $('#medConcern').val();
+  $('#search-btn').submit(function() {
+    event.preventDefault();
+    let docInfo = $('#doc-info').val();
+    let medConcern = $('#med-concern').val();
 
     $('#docInfo').val("");
     $('#medConcern').val("");
 
     //XML
     let request = new XMLHttpRequest();
-    let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${location}&skip=2&limit=10&user_key=process.env.apiKey`;
+    let url = `https://api.betterdoctor.com/2016-03-01/doctors?${location}&skip=2&limit=10&user_key=process.env.apiKey`;
 
     request.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
@@ -34,9 +35,9 @@ $(document).ready(function() {
     //POST
       let getElements = function(response) {
         console.log(response);
-        $('.searchInput').append(`<h3>Your search for ${docInfo} returned: </h3>`);
+        $('#results').append(`<h3>Your search for ${docInfo} returned: </h3>`);
         response.forEach(function(info) {
-          $('#docList').append(`
+          $('#doc-info').append(`
             <ul>
               <li><h4>${info.name}</h4></li>
               <li>Address: ${info.address}</li>

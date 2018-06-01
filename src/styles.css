@@ -3,7 +3,7 @@ body{
   z-index: -1;
 }
 
-#searchInput{
+#search-input{
     background-image: url('/img/stethoscope-icon.png');
     background-position: 10px 12px;
     background-repeat: no-repeat;
@@ -15,13 +15,13 @@ body{
     z-index: 1;
 }
 
-#docList {
+#doc-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-#docList li a {
+#doc-list li a {
     border: 1px solid #ddd;
     margin-top: -1px; /* no double borders */
     background-color: #f6f6f6; /* grey */
@@ -32,6 +32,6 @@ body{
     display: block;
 }
 
-#docList li a:hover:not(.header) {
+#doc-list li a:hover:not(.header) {
     background-color: #eee; /* hover effect */
 }
