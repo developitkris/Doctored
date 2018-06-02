@@ -23,7 +23,7 @@ _This is a web application that that lets users enter a doctor or medical concer
 
 ## Setup/Installation Requirements
 
-- Clone <https://github.com/PanatdaInthala/Doctor-Lookup.git>
+- Clone <https://github.com/developitkris/Doctored>
 - Open cloned directory in a terminal capable of running npm commands.
 - Run "npm install" in terminal
 - Navigate to BetterDoctor to register for an API key.
