@@ -16,15 +16,16 @@ $(document).ready(function() {
 
     //XML
     let request = new XMLHttpRequest();
-    let url = `https://api.betterdoctor.com/2016-03-01/doctors?${location}&skip=2&limit=10&user_key=process.env.apiKey`;
+    let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${docInfo}&query=${medConcern}&location=wa-seattle&skip=0&limit=10&user_key=${process.env.apiKey}`;
 
     request.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
         let response = JSON.parse(this.responseText);
         getElements(response);
       } else if (this.readyState == 4 && this.status !=200){
-        $('.error').show();
-        $('.error').text('There seems to have been a problem with that request, please try again');
+        $('#results').text('There seems to have been a problem with that request, please try again');
+      } else {
+        $('#results').text('Please wait a few moments while we process your request')
       }
     }
 
@@ -35,17 +36,19 @@ $(document).ready(function() {
     //POST
       let getElements = function(response) {
         console.log(response);
-        $('#results').append(`<h3>Your search for ${docInfo} returned: </h3>`);
-        response.forEach(function(info) {
-          $('#doc-info').append(`
-            <ul>
-              <li><h4>${info.name}</h4></li>
-              <li>Address: ${info.address}</li>
-              <li>Phone: ${info.phone}</li>
-              <li>Website: ${info.site}</li>
-              <li>New Patient status: ${info.status}</li>
-            </ul>`);
-        })
-      }
+        if (response.data != "") {
+          $('#results').text(`This list is compiled with the appropriate results pertaining to key words in your search`);
+          $('#results').append(`<h3>Your search for ${docInfo} returned: </h3>`);
+          response.data.forEach(function(info) {
+            $('#results').append(`
+              <ul>
+                <li><h4>${info.name}</h4></li>
+                <li>Address: ${info.address}</li>
+                <li>Phone: ${info.phone}</li>
+                <li>Website: ${info.site}</li>
+                <li>New Patient status: ${info.status}</li>
+              </ul>`);
+          })
+        };
+      });
     });
-  });
