@@ -24,11 +24,11 @@ _This is a web application that that lets users enter a doctor or medical concer
 ## Setup/Installation Requirements
 
 - Clone <https://github.com/developitkris/Doctored>
-- Open cloned directory in a terminal capable of running npm commands.
+- Open cloned directory in terminal
 - Run "npm install" in terminal
 - Navigate to BetterDoctor to register for an API key.
 - Create an .env file, add your new API key.
-- Save .env file
+- Save .env to your local file
 - Run "npm run build"
 - Run "npm run start"
 - Search up doctors in Seattle!
