@@ -2,9 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <title>Doctored</title>
   </head>
   <body>
+    <div class='container'>
     <h1><b>Doctored<b></h1>
     <br>
     <form id="searched">
@@ -14,16 +16,15 @@
       <div class="search-type">
         <label for="radio">Your search type: </label>
         <input type="radio" id="doc-name">
-        <input type="radio" name="med-concern">
+        <input type="radio" id="med-concern">
       </div>
       <!--submitsearch-->
-      <button type="submit" class="btn btn-success btn-lg search-btn" name="button">Doctor me</button>
+      <button type="submit" class="btn btn-success btn-lg search-btn">Doctor me</button>
     </form>
-  
+
     <div class="container">
       <div class="jumbotron hidden" id="results">
         <ul id="doc-info">
-          <li class="error"></li>
           <li class="firstname "></li>
           <li class="lastname "></li>
           <li class="address"></li>
@@ -32,6 +33,7 @@
           <li class="status"></li>
         </ul>
       </div>
+    </div>
     </div>
   </body>
 

@@ -48,7 +48,10 @@ $(document).ready(function() {
                 <li>Website: ${info.site}</li>
                 <li>New Patient status: ${info.status}</li>
               </ul>`);
-          })
-        };
-      });
+          });
+        } else {
+          $('#results').text("Your search query did not match doctors in our system")
+        }
+      };
     });
+  });
